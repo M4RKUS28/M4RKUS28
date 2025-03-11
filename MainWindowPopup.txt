@@ -1,0 +1,410 @@
+/* src/Components/MainWindow/Popup.module.css */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.popup {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1200px;
+  height: 90%;
+  max-height: 800px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1001;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border);
+}
+
+.header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.closeButton {
+  background-color: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--accent-primary);
+}
+
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.filterControls {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.filterLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.filterSelect {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  min-width: 150px;
+}
+
+.packageSummary {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.packageSummary h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem 0;
+  color: var(--text-primary);
+}
+
+.packageList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.packageItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: var(--bg-tertiary);
+  min-width: 200px;
+  flex: 1 0 auto;
+  max-width: 300px;
+}
+
+.packageLogo {
+  height: 40px;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+.packageDetails {
+  flex: 1;
+}
+
+.packageDetails h4 {
+  font-size: 0.9rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-primary);
+}
+
+.pricingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.price {
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.pricePeriod {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: var(--text-secondary);
+}
+
+.tableContainer {
+  overflow-x: auto;
+  flex: 1;
+  padding: 0 0.5rem 1rem;
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 0.5rem;
+}
+
+.comparisonTable thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--bg-secondary);
+}
+
+.comparisonTable th {
+  padding: 1rem 0.75rem;
+  text-align: left;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border);
+  background-color: var(--bg-secondary);
+}
+
+.comparisonTable td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.dateColumn {
+  min-width: 160px;
+  max-width: 220px;
+}
+
+.gameColumn {
+  min-width: 180px;
+}
+
+.packageColumn {
+  min-width: 100px;
+  text-align: center !important;
+}
+
+.packageColumnHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tablePackageLogo {
+  height: 25px;
+  max-width: 80px;
+  object-fit: contain;
+}
+
+.dateCell {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.gameCell {
+  color: var(--text-primary);
+}
+
+.matchInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.teams {
+  font-weight: 500;
+}
+
+.tournament {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.availabilityCell {
+  text-align: center;
+  position: relative;
+}
+
+.availabilityStatus {
+  position: relative;
+  display: inline-block;
+}
+
+.availableIcon, .highlightIcon, .unavailableIcon {
+  font-size: 1.2rem;
+}
+
+.availableIcon {
+  color: #38a169; /* green */
+}
+
+.highlightIcon {
+  color: #dd6b20; /* orange */
+}
+
+.unavailableIcon {
+  color: #e53e3e; /* red */
+}
+
+.statusTooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.4rem;
+  position: absolute;
+  z-index: 100;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.8rem;
+}
+
+.statusTooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+.availabilityStatus:hover .statusTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.noGamesMessage {
+  text-align: center;
+  padding: 3rem 0 !important;
+  color: var(--text-secondary);
+  font-size: 1rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.availableGameRow {
+  background-color: var(--bg-secondary);
+}
+
+.availableGameRow:hover {
+  background-color: rgba(56, 161, 105, 0.05); /* Green tint */
+}
+
+.unavailableGameRow {
+  background-color: var(--bg-secondary);
+}
+
+.unavailableGameRow:hover {
+  background-color: rgba(229, 62, 62, 0.05); /* Red tint */
+}
+
+.missingGameRow {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.missingGameRow:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.live {
+  background-color: rgba(56, 161, 105, 0.1);
+}
+
+.highlight {
+  background-color: rgba(221, 107, 32, 0.1);
+}
+
+.unavailable {
+  background-color: rgba(229, 62, 62, 0.05);
+}
+
+@media (max-width: 768px) {
+  .popup {
+    width: 95%;
+    height: 95%;
+    max-height: none;
+  }
+
+  .filterControls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterGroup {
+    justify-content: space-between;
+  }
+
+  .packageList {
+    flex-direction: column;
+  }
+
+  .packageItem {
+    max-width: none;
+  }
+
+  .dateColumn, .gameColumn {
+    min-width: 120px;
+  }
+}

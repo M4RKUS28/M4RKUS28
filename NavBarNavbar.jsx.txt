@@ -1,0 +1,68 @@
+// src/Components/NavBar/Navbar.jsx
+import { useContext, useState } from 'react';
+import styles from './Navbar.module.css';
+import logo from '../../assets/logo_white.png';
+import logoBlack from '../../assets/logo_black.png'; // You'll need to add this asset
+import githubLogo from '../../assets/github-logo.png';
+import { ThemeContext } from '../../context/ThemeContext';
+import { FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi'; // Install react-icons
+
+function Navbar() {
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <nav className={styles.Container}>
+      <div className={styles.NavContent}>
+        <a href="https://www.check24.com" className={styles.Link}>
+          <img 
+            className={styles.Logo} 
+            src={darkMode ? logo : logoBlack} 
+            alt="Check24 Logo" 
+          />
+        </a>
+        
+        <h2 className={styles.Title}>
+          <span className={styles.TitleHighlight}>Streaming</span>Check
+        </h2>
+
+        <div className={styles.Spacer}></div>
+        
+        <div className={styles.NavActions}>
+          <button 
+            className={styles.ThemeToggle} 
+            onClick={toggleTheme} 
+            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {darkMode ? <FiSun /> : <FiMoon />}
+          </button>
+          
+          <a href="https://github.com/M4RKUS28/BestCombinationChallenge" 
+             className={styles.Link} 
+             aria-label="GitHub Repository"
+          >
+            <img className={styles.GithubLogo} src={githubLogo} alt="GitHub" />
+          </a>
+          
+          <button 
+            className={styles.MenuButton} 
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+          >
+            {menuOpen ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
+      </div>
+      
+      {/* Mobile Menu */}
+      <div className={`${styles.MobileMenu} ${menuOpen ? styles.MenuOpen : ''}`}>
+        <a href="#" className={styles.MenuItem}>Home</a>
+        <a href="#" className={styles.MenuItem}>My Saved Combinations</a>
+        <a href="#" className={styles.MenuItem}>Help & Support</a>
+        <a href="https://github.com/M4RKUS28/BestCombinationChallenge" className={styles.MenuItem}>GitHub</a>
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;

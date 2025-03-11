@@ -1,0 +1,145 @@
+/* src/Components/NavBar/Navbar.module.css */
+.Container {
+  background-color: var(--bg-secondary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.NavContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.Logo {
+  height: 40px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.Logo:hover {
+  transform: scale(1.05);
+}
+
+.GithubLogo {
+  height: 28px;
+  width: auto;
+  filter: var(--github-logo-filter);
+  transition: transform 0.3s ease;
+}
+
+.GithubLogo:hover {
+  transform: scale(1.1);
+}
+
+.Link {
+  display: flex;
+  align-items: center;
+}
+
+.Spacer {
+  flex-grow: 1;
+}
+
+.Title {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+  margin-left: 1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.TitleHighlight {
+  color: var(--accent-primary);
+}
+
+.NavActions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.ThemeToggle {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.ThemeToggle:hover {
+  color: var(--accent-primary);
+  background: none;
+  transform: rotate(15deg);
+}
+
+.MenuButton {
+  display: none;
+  background: none;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  padding: 0.5rem;
+}
+
+.MenuButton:hover {
+  color: var(--accent-primary);
+  background: none;
+}
+
+.MobileMenu {
+  display: none;
+  flex-direction: column;
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.MenuItem {
+  padding: 0.8rem 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: background-color 0.2s;
+  border-radius: 6px;
+}
+
+.MenuItem:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+  .MenuButton {
+    display: block;
+  }
+  
+  .MobileMenu {
+    display: flex;
+  }
+  
+  .MenuOpen {
+    max-height: 300px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .ThemeToggle {
+    margin-left: auto;
+  }
+}
+
+/* Dark mode specific adjustments */
+:global(.dark-theme) .GithubLogo {
+  filter: invert(1);
+}
