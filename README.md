@@ -3,6 +3,9 @@
 # 💫 About Me:
 🔭 I’m currently working on: Completing my Bachelor's in business informatics at TUM, focusing on the intersection of technology and business.<br>🕺 I’m looking to collaborate on: Data-driven projects, innovative IT solutions, and interdisciplinary research in business and technology.<br>🤝 I’m looking for help with: Exploring cutting-edge developments in machine learning, business analytics and project management.<br>🌱 I’m currently learning: Programming in Python, and cloud computing (AWS/Azure).<br>💬 Ask me about: Tech trends, business models, or anything related to business informatics.
 
+## Interested ?
+Then have a look at ![this!](https://www.m4rkus28.de/)
+
 
 ## 🌐 Socials:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/markus-huber-0132282bb) 
